@@ -23,6 +23,8 @@ public class GameCard : MonoBehaviour {
 
 
 
+
+	//cardオブジェクトを180度回転させると、逆さまになるのでクリックしてもイベントがトリガーされないのでクリックは一回しかできない用になっていた。
 	public void onClickCard(){
 		StatusManager.count += 1;
 		StatusManager.selectedCards.Add (this);
@@ -32,6 +34,8 @@ public class GameCard : MonoBehaviour {
 
 	}
 
+
+	//連続でタップされた時とか面倒くさい。とりあえず1秒待っている。
 	private void OnRotateComplete(){
 
 
