@@ -15,10 +15,17 @@ public class GameCard : MonoBehaviour {
 			return card.GetComponent<Button>();
 		 }
 	}
-		
+
+	private Color _backColor;
+
+
 	// Use this for initialization
 	void Start () {
 
+	}
+
+	public void setBackCard(int i){
+		_backColor = GameManager.colors [i];
 	}
 
 
@@ -28,7 +35,7 @@ public class GameCard : MonoBehaviour {
 	public void onClickCard(){
 		StatusManager.count += 1;
 		StatusManager.selectedCards.Add (this);
-		button.GetComponentInChildren<Image>().color = Color.green;
+		button.GetComponentInChildren<Image>().color = _backColor;
 		iTween.RotateTo (card, iTween.Hash ("y", 180, "oncomplete", "OnRotateComplete",
 			"isLocal", true));
 
